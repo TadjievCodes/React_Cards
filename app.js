@@ -76,26 +76,28 @@ const Planet = (props) => {
   return (
       <div className="card">
         <div>
-          <img src="img/mercury.jpg" alt="Mercury" />
+          <img src={props.url} alt={props.name} />
         </div> 
-        <h2>Mercury</h2>
-        <p>Mercury is the closest planet to the Sun. Due to its proximity, it's not easily seen except during twilight...</p>
+        <h2>{props.name}</h2>
+        <p>{props.desc}</p>
         <h3>Planet Profile</h3>
         <ul>
-          <li><strong>Diameter:</strong> 3,031.67 mi</li>
-          <li><strong>Moons:</strong> none</li>
+          <li><strong>Diameter:</strong> {props.diameter}</li>
+          <li><strong>Moons:</strong> {props.moons}</li>
         </ul>
     </div>  
   );
 }
 
   
+
+
   
 // 2: Create a container component that iterates over the planets array 
 //    and renders a 'Planet' component for each object in the array 
 
 const PlanetList = (props) => {
-   return(
+   return (
       <div className="container">
       {props.planets.map ( planet =>
         
@@ -114,9 +116,9 @@ const PlanetList = (props) => {
 
 // 3: Render the container component to the DOM
 
-ReactDom.render  (
-  <PlanetList planets={planets}/>,
-  document.getElementById()
+ReactDOM.render  (
+  <PlanetList planets={planets} />,
+  document.getElementById('root')
  
 );
   
